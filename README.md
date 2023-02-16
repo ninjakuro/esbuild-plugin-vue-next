@@ -1,4 +1,4 @@
-# esbuild-plugin-vue-next
+# esbuild-plugin-vue
 
 building vue 3.x SFC files with esbuild.
 
@@ -37,14 +37,23 @@ node build.js
 
 ```js
 export interface Options {
-    // template
-    templateOptions?: Pick<SFCTemplateCompileOptions, 'compiler' | 'preprocessLang' | 'preprocessOptions' | 'compilerOptions' | 'transformAssetUrls'>
+	isProduction?: boolean
 
-    // script
-    scriptOptions?: Pick<SFCScriptCompileOptions, 'babelParserPlugins' | 'refSugar'>
+	extractCss?: boolean
 
-    // style
-    styleOptions?: Pick<SFCAsyncStyleCompileOptions, 'modulesOptions' | 'preprocessLang' | 'preprocessOptions' | 'postcssOptions' | 'postcssPlugins'>
+	sourceMap?: boolean
+
+	template?: Pick<
+		SFCTemplateCompileOptions,
+		'compiler' | 'compilerOptions' | 'preprocessLang' | 'preprocessOptions' | 'preprocessCustomRequire' | 'transformAssetUrls'
+		>
+
+	script?: Pick<SFCScriptCompileOptions, 'babelParserPlugins'>
+
+	style?: Pick<
+		SFCAsyncStyleCompileOptions,
+		'modulesOptions' | 'preprocessLang' | 'preprocessOptions' | 'postcssOptions' | 'postcssPlugins'
+		>
 }
 
 ```
