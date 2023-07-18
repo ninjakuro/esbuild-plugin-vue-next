@@ -25,7 +25,7 @@ export function loadEntry (filename: string, options: Options): OnLoadResult {
 		if (styleBlock.module) {
 			if (!hasModuleInject) {
 				// expose cssModules to script
-				styleImportCode += `\nscript.__cssModules = cssModules = {}`
+				styleImportCode += `\nconst cssModules = script.__cssModules = {}`
 				hasModuleInject = true
 			}
 			// <style module="someName">
